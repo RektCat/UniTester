@@ -157,4 +157,124 @@ questions = [
     },[
         "NTSC analóg televízió", "PAL analóg televízió", "NTSC digitális videó", "PAL digitális videó"
     ]),
+    Group("Csoportosítsa a következőket aszerint, hogy a vizuális vagy a strukturális markup-hoz kötődik inkább!",
+    "Vizuális markup", 
+    {
+        "A szöveg megjelenésének jellemzőit definiálja": True,
+        "Fontok": True,
+        "Táblázat": False,
+        "Fejléc": False,
+        "Betűméret": True,
+        "Lista": False,
+        "A szöveg szerkezeti jellemzőit definiálja": False,
+        "Szín": True,
+    }),
+    Simple("Hány elemű a web-safe paletta?", "216"),
+    Group("Csoportosítsa a video készítési folyamat elemeit attól függően, hogy a vágási vagy az utómunka fázisban alkalmazzuk!",
+    "Vágás elemei", 
+    {
+        "Feliratkozás": False,
+        "Színkorrekció": False,
+        "Nyersanyagok kiválogatása": True,
+        "Klip határok megjelölése": True,
+        "Video és hangsáv kombinálása": True,
+        "Animáció": False,
+        "Időbeli elrendezés": True,
+        "Bluebox compositing": False,
+    }),
+    SingleChoice("Melyik a kakukktojás?", [
+        "ITU", "ISO", "IANA", "IEC"
+    ], 2),
+    SingleChoice("Melyik cég nevéhez kötődik a Multiple Master Font technológia?", [
+        "Apple", "Google", "Microsoft", "Adobe"
+    ], 3),
+    SingleChoice("A CD és DVD olvasókon/ írókon található 1x jelölés...", [
+        "DVD esetén kb. 16-szor nagyobb adatátviteli sebességet jelöl",
+        "DVD esetén kb. 32-szor nagyobb adatátviteli sebességet jelöl",
+        "DVD esetén kb. 8-szor nagyobb adatátviteli sebességet jelöl",
+        "ugyanazt jelenti"
+    ], 2),
+    Simple("Hány biten kódolja a karaktert al ISO 10646?", "32"),
+    TrueFalse("Mivel lehet animációt készíteni?", {
+        "JavaScript program" : True,
+        "1 rúd gyerek gyurma" : True,
+        "10 dkg liszt" : True,
+        "egy A4-es papírlap" : True,
+        "1 plussmackó" : True,
+        "3 üveggolyó" : True,
+    }),
+    SingleChoice("Melyik cég nevéhez kötődik a PostScript 'de facto' szabvány?", [
+        "Microsoft", "Apple", "Adobe", "AutoDesk"
+    ], 2),
+    SingleChoice("Melyik színhőmérséklet tartozik a természetes fehér fényhez?", [
+        "5000K", "6500K", "9000K"
+    ], 1),
+    Group("Csoportosítsa a képmanipulációs műveleteket aszerint, hogy elsősorban pixelek pontokra vagy pixel csoportokra alkalmazzuk!",
+    "Pixel csoportokra", 
+    {
+        "Fényesség korrekció": False,
+        "Kontraszt állítás": False,
+        "Simítás": True,
+        "Élkiemelés": True,
+        "Küszöbölés": False,
+        "Szűrés": True,
+        "Hisztogram kiegyenlítés": False,
+        "Szin beállítás": False,
+        "Konvolúció": True,
+        "Interpoláció": True,
+    }),
+    MultiGroup("Csoportosítsa a színtereket!", False, {
+        "Luv": 0, "XYZ": 0, "CMY": 1, "RGB": 1, "YUV": 1, "Lab": 0, "HSV": 1
+    },[
+        "Eszközfüggetlen színterek", "Eszközfüggő színterek"
+    ]),
+    SingleChoice("Melyik a kakukktojás?", [
+        "ISO", "BSI", "DIN", "ANSI"
+    ], 0),
+    TrueFalse("Mit jelölhet egy markup nyelv?", {
+        "Vizuális jellemzők" : True,
+        "Interakciót" : True,
+        "Képek és videók helyét" : True,
+        "Elrendezési utasítások" : True,
+        "Linkek más dokumentumokhoz" : True,
+        "Idő-alapú médiumok szinkronizációját" : True,
+    }),
+    MultiGroup("Csoportosítsa a különböző videó típusokat az alkalmazott független jelek számával és a legfőbb alkalmazási területükkel!", False, {
+        "3 független jel (YUV)": 0, "2 jel (fénysűrűség, kromatikus)": 2, "1 kombinált jel (YUV)": 1,
+        "Átvitelre": 1, "Magas szintű felhasználóieszközök": 2, "Analóg videó tárolására stúdiókban": 0
+    },[
+        "Komponens videó", "Kompozit videó", "S-videó"
+    ]),
+    MultiGroup("Párosítsa a hálózati szolgáltatás minőségét (QOS, Quality of Service) meghatározó paraméterekre használt angol és magyar kifejezéseket!", True, {
+    "Sávszélesség": 3, "Csomag késleltetés ingadozása": 1, "Csomag késleltetés": 0, "Csomag vesztés": 2
+    },[
+        "Latency / Delay", "Jitter", "Packet loss / Drop rate", "Bandwidth"
+    ]),
+    TrueFalse("Mi lehet egy PDF dokumentumban?", {
+        "Mindenre pipa": True
+    }),
+    SingleChoice("Melyik testület tartja kézben az XML 'de facto' szabványt?", [
+        "IETF", "W3C", "WWW", "IANA"
+    ], 1),
+    SingleChoice("Melyiket nem tartalmazza egy eszköz színprofilja?", [
+        "színhőmérséklet", "fehér pont", "kromatikusok", "gamma paraméter"
+    ], 0),
+    Group("Csoportosítsa a szabványos kódkészleteket aszerint, hogy tartalmazzák-e a magyar ékezetes (két vesszős) szimbólumokat vagy sem!",
+    "Tartalmazza ezeket a szimbólumokat", 
+    {
+        "Unicode": True,
+        "ASCII": False,
+        "ISO 8859-1": False,
+        "ISO Latin2": True,
+        "ISO 10646": True,
+        "ISO Latin1": False,
+        "ISO 8859-2": True,
+        "ISO 646": False,
+    }),
+    SingleChoice("Melyik képmanipulációs műveletet végezzük általában pixelcsoportokon?", [
+        "fényesség állítás", "küszöbölés", "kontraszt beállítás", "konvolúciós szűrés"
+    ], 0),
+    Sequence("Helyezze kronológiái sorrendbe a multimédia kialakulásáig vezető évtizedek jelentős informatikai mérföldköveit (a legkorábbitól a legkésőbbiig)!", [
+        "Hardver", "Számítás", "Szoftver", "Adatbázisok", "Desktop", "Hálózat", "Multimédia"
+    ]),
 ]
