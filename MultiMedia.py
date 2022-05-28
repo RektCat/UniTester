@@ -1,3 +1,5 @@
+import random
+import copy
 import MMQuestions as mmq
 from time import sleep
 
@@ -23,12 +25,51 @@ def quiz():
             handle_true_false(q)
         elif isinstance(q, mmq.Group):
             handle_group(q)
+        elif isinstance(q, mmq.Sequence):
+            handle_sequence(q)
+
+def handle_sequence(q):
+    print(q.question)
+    correct_order = q.answers
+    random_ordered_answers = copy.deepcopy(q.answers)
+    random.shuffle(random_ordered_answers)
+
+    choices = "Answers: "
+    for pos in range(len(random_ordered_answers)):
+        choices += str(pos) + " - " + random_ordered_answers[pos]
+        if pos != len(q.answers) - 1:
+            choices += " | "
+
+    print(choices)
+    answer_list = input("A válaszokhoz tartozó számokat szóközzel elválasztva írd be!").split(" ")
+    answers_num = 0
+    answers = []
+    for pos in range(len(answer_list)):
+        # these are strings, so it will work on '0' as well
+        if not answer_list[pos]: continue
+        try:
+            if answers_num >= len(correct_order): raise IndexError()
+            num = answer_list[pos]
+            answers.append(random_ordered_answers[int(num)])
+            answers_num += 1
+        except IndexError:
+            print("!!!Too many answers!!!")
+            print("----------------------")
+            return
+        except ValueError:
+            print("!!!Not every answer was a number!!!")
+            print("-----------------------------------")
+            return
+    
+    check_answer(answers, correct_order)
+
 
 def handle_group(q):
     print(q.question)
     print(f"{q.group_name}-be kell beválogatni, a többi természetesen a másik csoportba kerülne CS-en")
 
     for text, ans in q.answers.items():
+        print(f"{q.group_name}")
         answer = input(f"{text} (Y == true / N == false)")
         answer = "True" if answer.upper() == "Y" else "False"
         check_answer(answer, ans)
@@ -61,24 +102,37 @@ def handle_single_choice(q):
 
 
 def check_answer(answer, correct, toprint = None):
-    if answer == str(correct):
+    if isinstance(answer, list) and isinstance(correct, list):
+        if answer == correct:
+            print("-----NOICE-----")
+            dot_print()
+        else:
+            if toprint == None :
+                print(f"Helyes: {correct}")
+            else:
+                print(f"Helyes: {toprint}")
+            print("-----SADGE-----")
+            
+            dot_print()
+    
+    elif answer == str(correct):
         print("-----NOICE-----")
-        for _ in range(5):
-            print(".", end=" ")
-            sleep(250 / 1000)
-        print()
+        dot_print()
     
     else:
-        if(toprint == None):
+        if toprint == None :
             print(f"Helyes: {correct}")
         else:
             print(f"Helyes: {toprint}")
         print("-----SADGE-----")
         
-        for _ in range(5):
-            print(".", end=" ")
-            sleep(250 / 1000)
-        print()
+        dot_print()
+
+def dot_print():
+    for _ in range(5):
+        print(".", end=" ")
+        sleep(250 / 1000)
+    print()
 
 
 if __name__ == "__main__":

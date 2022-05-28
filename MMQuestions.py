@@ -39,6 +39,9 @@ class MultiGroup:
 
 
 questions = [
+    Sequence("Állítsa sorrendbe a JPEG tömörítés lépéseit!", [
+        "Blokkokra osztas", "DCT", "Kvantalas", "Cikk-cakk osszefuzes", "Entropia kodolas pl. Huffman"
+    ]),
     SingleChoice("Melyik a kakukktojas?", ["IETF", "IAB", "ITU", "IANA"], 2),
     TrueFalse("Melyik allitasok hamisak?", 
         {
@@ -57,7 +60,7 @@ questions = [
         "DCT": True,
         "Wavelet transzformacio": True,
         "Aritmetikai kodolas": False,
-        "LWZ (Lempel-Ziv-Welch)": False,
+        "LZW (Lempel-Ziv-Welch)": False,
         "Fraktal tomorites": True,
         "Szabalyozhato tomoritesi rataju tomoritesek": True,
     }),
@@ -93,9 +96,6 @@ questions = [
         "Fraktal tomorites": True,
         "Jól hasznalhato folytonos tónusú képek ábrázolásakor": True,
     }),
-    Sequence("Állítsa sorrendbe a JPEG tömörítés lépéseit!", [
-        "Blokkokra osztas", "DCT", "Kvantalas", "Cikk-cakk osszefuzes", "Entropia kodolas pl. Huffman"
-    ]),
     SingleChoice("Melyik színhomérséklet tartozik a kékes fehér fényhez?", [
         "9000K", "6500K", "5000K"
     ], 0),
