@@ -12,7 +12,7 @@ def main():
     while True:
         quiz()
         again = input("Ujra? (Y/N)")
-        if again.upper() == "N": break
+        if again.upper() != "Y": break
 
 def quiz():
     questions = mmq.questions

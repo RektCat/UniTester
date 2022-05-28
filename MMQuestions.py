@@ -93,7 +93,6 @@ questions = [
         "Matematikai leiras": True,
         "Jol viselkedik skalazasnal es atmeretezesnel": True,
         "Rajzolas jellegu muveletek": False,
-        "Fraktal tomorites": True,
         "Jól hasznalhato folytonos tónusú képek ábrázolásakor": True,
     }),
     SingleChoice("Melyik színhomérséklet tartozik a kékes fehér fényhez?", [
@@ -273,7 +272,7 @@ questions = [
     }),
     SingleChoice("Melyik képmanipulációs műveletet végezzük általában pixelcsoportokon?", [
         "fényesség állítás", "küszöbölés", "kontraszt beállítás", "konvolúciós szűrés"
-    ], 0),
+    ], 3),
     Sequence("Helyezze kronológiái sorrendbe a multimédia kialakulásáig vezető évtizedek jelentős informatikai mérföldköveit (a legkorábbitól a legkésőbbiig)!", [
         "Hardver", "Számítás", "Szoftver", "Adatbázisok", "Desktop", "Hálózat", "Multimédia"
     ]),
