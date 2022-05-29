@@ -16,6 +16,7 @@ def main():
 
 def quiz():
     questions = mmq.questions
+    random.shuffle(questions)
     for q in questions:
         if isinstance(q, mmq.Simple):
             handle_simple(q)
@@ -27,6 +28,38 @@ def quiz():
             handle_group(q)
         elif isinstance(q, mmq.Sequence):
             handle_sequence(q)
+        elif isinstance(q, mmq.MultiGroup):
+            pass
+            # handle_multigroup(q)
+
+def handle_multigroup(q):
+    print(q.question)
+
+    correct_answers = q.answers
+    # keys to list
+    remaining = [*copy.deepcopy(q.answers)]
+    random.shuffle(remaining)
+    
+    if q.single_answer_per_group:
+        for pos in range(len(q.groups)):
+            choices = "Answers: "
+            for apos in range(len(remaining)):
+                choices += str(apos) + " - " + remaining[apos]
+                if apos != len(remaining) - 1:
+                    choices += " | "
+            
+            print(choices)
+            answer = input(q.groups[pos] + " : ")
+            try:
+                pass
+            except:
+                pass
+
+
+
+    else:
+        pass
+
 
 def handle_sequence(q):
     print(q.question)

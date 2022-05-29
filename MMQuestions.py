@@ -39,6 +39,11 @@ class MultiGroup:
 
 
 questions = [
+    MultiGroup("Párosítsa a technológiákat a bennük használatos képsorok számával!", True, {
+        "525": 0, "625": 1, "480": 2, "576": 3
+    },[
+        "NTSC analóg televízió", "PAL analóg televízió", "NTSC digitális videó", "PAL digitális videó"
+    ]),
     Sequence("Állítsa sorrendbe a JPEG tömörítés lépéseit!", [
         "Blokkokra osztas", "DCT", "Kvantalas", "Cikk-cakk osszefuzes", "Entropia kodolas pl. Huffman"
     ]),
@@ -150,11 +155,6 @@ questions = [
         "A sistergésre": 0, "Moraj eltávolítása": 1, "Elektromos hálózatból származó zajra": 2, "Túl közeli mikrofon okozta sziszegésre": 3
     },[
         "Aluláteresztő szűrő", "Felüláteresztő szűrő", "Lyuk szűrő", "De esser"
-    ]),
-    MultiGroup("Párosítsa a technológiákat a bennük használatos képsorok számával!", True, {
-        "525": 0, "625": 1, "480": 2, "576": 3
-    },[
-        "NTSC analóg televízió", "PAL analóg televízió", "NTSC digitális videó", "PAL digitális videó"
     ]),
     Group("Csoportosítsa a következőket aszerint, hogy a vizuális vagy a strukturális markup-hoz kötődik inkább!",
     "Vizuális markup", 
